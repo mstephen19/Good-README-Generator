@@ -1,65 +1,46 @@
 # Good Readme Generator
 
-One paragraph of project description goes here.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+This is an application that will generate a README.md file based on parameters provided by the user. The README features a title, a license badge, installation instructions, a questions section, and more. If the user chooses "NO LICENSE," no license information is shown. All other fields are required.
+
+![Image](demo.gif)
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+In order to get started, download/clone the repository's contents do your computer, then navigate to the root directory ("good-README-generator").
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
+You will need Node.js in order to run this application: Download it [here](https://nodejs.org/en/).
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development environment running.
+You will need to install the "inquirer" and "axios" modules as dependencies for this app.
 
-Say what the step will be:
-
+In terminal within the root directory:
 ```
-Give the example
+npm install
 ```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
 
 ## Built With
 
-* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [NodeJS](https://nodejs.org/en/)
+* [GitHub API](https://docs.github.com/en/rest/reference/licenses)(for list of licenses)
+* [Badge Generator from Michael Currin](https://michaelcurrin.github.io/badge-generator/#/generic)
 
-## Deployed Link
+## Author
 
-* [See Live Site](#)
+**Matt Stephens** 
 
-
-## Authors
-
-* **YOUR NAME** 
-
-- [Link to Portfolio Site](#)
-- [Link to Github](https://github.com/)
-- [Link to LinkedIn](https://www.linkedin.com/)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+- [Link to Portfolio Site](https://mstephen19.github.io/newestPortfolio)
+- [Link to Github](https://github.com/mstephen19)
+- [Link to LinkedIn](https://www.linkedin.com/mstephen19)
 
 ## License
 
-This project is licensed under the MIT License 
+This project is licensed under the MIT License
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code, libraries, packages, or UI was used  / inspired from
-* Inspiration
-* etc
+* Shoutout to [Jesse Lewis](https://www.linkedin.com/in/jesseaustinlewis/) for helping me out with prompt
