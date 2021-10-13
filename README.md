@@ -4,7 +4,7 @@
 
 This is an application that will generate a README.md file based on parameters provided by the user. The README features a title, a license badge, installation instructions, a questions section, and more. If the user chooses "NO LICENSE," no license information is shown. All other fields are required.
 
-![Image](demo.gif)
+![Image](./images/demo.gif)
 
 ## Getting Started
 
@@ -22,6 +22,8 @@ In terminal within the root directory:
 ```
 npm install
 ```
+
+![Image](./images/npminstall.png)
 
 ## Built With
 
