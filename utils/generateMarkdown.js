@@ -1,25 +1,90 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {
-  license ? `` : '';
+const axios = require('axios');
+let licenses;
+let link;
+let badge;
+
+function renderLicenseLink(data) {
+  const {license: selected} = data
+  if (selected == 'NO LICENSE') return '';
+  licenses.forEach(obj=>{
+    if (obj.name == selected){
+      link = `[License Link](${obj.url})`
+    }
+  })
+  return link;
+}
+function renderLicenseBadge(data) {
+  const {license: selected} = data
+  if (selected == 'NO LICENSE') return '';
+  licenses.forEach(obj=>{
+    if (obj.name == selected){
+      // badge = `![License - CC](https://img.shields.io/badge/License-${obj.spdx_id}-2ea44f)(${obj.url.replace(/ /g, '&')})`
+      badge = `[![License - CC](https://img.shields.io/static/v1?label=License&message=${obj.spdx_id}&color=2ea44f)](${obj.url.replace(/ /g, '&')})`
+    }
+  })
+  return badge;
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+module.exports = {
+  getLicenses: function(cb){
+    axios
+      .get('https://api.github.com/licenses')
+      .then(data=>{
+        licenses = data.data;
+        // console.log(licenses);
+        cb(licenses);
+      })
+  },
+  generateMarkdown: function(data) {
+    renderLicenseLink(data);
+    renderLicenseBadge(data);
+    if (link == undefined){
+      link = '';
+      badge = '';
+    }
+    return `
+# ${data.title}
+${badge}
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+## Description
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+${data.description}
 
-  ${data.description}
+## Table of Contents
 
-  ${data.license}
-`;
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+
+## Installation
+
+${data.install}
+
+## Usage
+
+${data.usage}
+
+---
+
+## Contributing
+
+${data.contributions}
+
+## Tests
+
+${data.testing}
+
+## Questions
+
+* [Link to My Github](https://github.com/${data.username})
+
+* Or reach out to me via email with any additional questions: ${data.email}
+
+## License
+
+This software is protected under the ${data.license}
+
+${link}
+    `;
+  }
 }
-
-module.exports = generateMarkdown;
