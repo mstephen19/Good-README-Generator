@@ -69,7 +69,7 @@ function init() {
       .prompt(questions)
       .then(response=>{
         let data = response;
-        fs.writeFile(`${data.title}.md`, generateMarkdown.generateMarkdown(data), err=>err?console.error(err):console.log('success'));
+        fs.writeFile(`./Generated/${data.title}.md`, generateMarkdown.generateMarkdown(data), err=>err?console.error(err):console.log('success'));
       })
   })
 }
